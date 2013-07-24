@@ -79,5 +79,6 @@
       range.collapse(true);
       range.select();
     }
+    return pos;
   }
 })(jQuery)
