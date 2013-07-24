@@ -1,6 +1,25 @@
 (function($) {
+
+  function isContentEditable($target) {
+    return !!$target.attr('contenteditable');
+  }
+
+  function getEndPosition($target) {
+    var method = 'val';
+    if (isContentEditable($target)) {
+      method = 'text';
+    }
+    return $target[method]().length;
+  }
+
   $.fn.caret = function(pos) {
     var target = this[0];
+    var targetIsContentEditable = isContentEditable(this);
+
+    if (pos === -1) {
+      pos = getEndPosition(this);
+    }
+
     //get
     if (arguments.length == 0) {
       //HTML5

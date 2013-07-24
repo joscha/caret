@@ -24,8 +24,11 @@ $(function() {
 
 c</textarea>
 <input type="text" id="pos">
-<button onclick="$('#pos').val($('#text').caret())">read</button>
-<button onclick="$('#text').caret($('#pos').val());$('#text').focus()">write</button>
+<button onclick="$('#pos').val($('#text').caret());">read</button>
+<button onclick="$('#text').caret($('#pos').val());">write</button>
+<button onclick="$('#editable').caret(-1);">Editable-end</button>
+<button onclick="$('#text').caret(-1);">Text-end</button>
+
 <div id="editable" contenteditable="true">ac</div>
 </body>
 </html>
