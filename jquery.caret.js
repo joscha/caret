@@ -79,6 +79,9 @@
       range.collapse(true);
       range.select();
     }
+    if (!targetIsContentEditable) {
+      target.focus();
+    }
     return pos;
   }
 })(jQuery)
