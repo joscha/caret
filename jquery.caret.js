@@ -1,5 +1,9 @@
 (function($) {
 
+  function isContentEditable($target) {
+    return $target.attr('contenteditable') === 'true';  
+  }
+
   function getEndPosition($target) {
     var method = 'val';
     if (isContentEditable($target)) {
@@ -10,7 +14,7 @@
 
   $.fn.caret = function(pos) {
     var target = this[0];
-    var targetIsContentEditable = (this.attr('contenteditable') === 'true');
+    var targetIsContentEditable = isContentEditable(this);
 
     if (pos === -1) {
       pos = getEndPosition(this);
